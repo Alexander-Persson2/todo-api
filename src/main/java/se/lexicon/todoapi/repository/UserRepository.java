@@ -18,6 +18,7 @@ public interface UserRepository extends JpaRepository<Role, String> {
     void updateExpiredByEmail(@Param("email") String email,@Param("status") boolean status);
 
     //update password
+    @Modifying
     @Query("update User u set u.password = :password where u.email = :email")
     void updatePasswordByEmail(@Param("email") String email, @Param("password") String password);
 

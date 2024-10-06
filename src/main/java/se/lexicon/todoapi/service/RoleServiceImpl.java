@@ -26,13 +26,11 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public List<RoleDTOView> getAll() {
         List<Role> roles = roleRepository.findAll();
-
-        List<RoleDTOView> roleDTOViews = new ArrayList<>();
-        for(Role entity : roles){
+        List<RoleDTOView> roleDTOViewList = new ArrayList<>();
+        for (Role entity : roles){
             RoleDTOView dtoView = roleConverter.toRoleDTO(entity);
-            RoleDTOViewList.add(d)
+            roleDTOViewList.add(dtoView);
         }
-
-        return List.of()
+        return roleDTOViewList;
     }
 }
