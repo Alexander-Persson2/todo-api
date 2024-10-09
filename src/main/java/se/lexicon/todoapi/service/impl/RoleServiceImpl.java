@@ -1,12 +1,12 @@
-package se.lexicon.todoapi.service;
+package se.lexicon.todoapi.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import se.lexicon.todoapi.converter.RoleConverter;
 import se.lexicon.todoapi.domain.dto.RoleDTOView;
 import se.lexicon.todoapi.domain.entity.Role;
 import se.lexicon.todoapi.repository.RoleRepository;
+import se.lexicon.todoapi.service.RoleService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class RoleServiceImpl implements RoleService {
     public List<RoleDTOView> getAll() {
         List<Role> roles = roleRepository.findAll();
         List<RoleDTOView> roleDTOViewList = new ArrayList<>();
-        for (Role entity : roles){
+        for (Role entity : roles) {
             RoleDTOView dtoView = roleConverter.toRoleDTO(entity);
             roleDTOViewList.add(dtoView);
         }
