@@ -17,7 +17,7 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
     // select tasks by status
     List<Task> findByDone(boolean done);
     // select tasks by date between start and end
-    @Query("select t from Task where t.deadline between :from and :to")
+    @Query("select t from Task t where t.deadline between :from and :to")
     List<Task> selectTasksBetweenDates(@Param("from") LocalDate from, @Param("to") LocalDate to);
 
     List<Task> findByDeadlineBetween(LocalDate from, LocalDate to);
